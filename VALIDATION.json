@@ -1,0 +1,61 @@
+{
+  "llm_desktop": {
+    "title": "LLM Research · Qingfei Zhao / 赵庆飞",
+    "width": 1440,
+    "overflow": false,
+    "images": [
+      {
+        "src": "assets/images/portrait.jpg",
+        "ok": true
+      },
+      {
+        "src": "assets/images/bppo-overview.png",
+        "ok": true
+      },
+      {
+        "src": "assets/images/pg-opd-overview.png",
+        "ok": true
+      }
+    ]
+  },
+  "figure_dialog": true,
+  "citation_dialog": true,
+  "embodied_desktop": {
+    "overflow": false,
+    "noRates": true,
+    "videoCount": 2
+  },
+  "lamp_video": {
+    "playing": true,
+    "time": 1.004781,
+    "error": null
+  },
+  "video_switch": true,
+  "vending_video": {
+    "playing": true,
+    "time": 0.860385,
+    "error": null
+  },
+  "llm_mobile": {
+    "width": 500,
+    "scrollWidth": 488,
+    "overflow": false
+  },
+  "embodied_mobile": {
+    "width": 500,
+    "scrollWidth": 488,
+    "overflow": false
+  },
+  "mobile_390px": {
+    "llm": {
+      "width": 390,
+      "scrollWidth": 378,
+      "overflow": false
+    },
+    "embodied": {
+      "width": 390,
+      "scrollWidth": 378,
+      "overflow": false
+    }
+  }
+}
