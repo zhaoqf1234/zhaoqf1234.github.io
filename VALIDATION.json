@@ -1,61 +1,34 @@
 {
-  "llm_desktop": {
-    "title": "LLM Research · Qingfei Zhao / 赵庆飞",
-    "width": 1440,
-    "overflow": false,
-    "images": [
-      {
-        "src": "assets/images/portrait.jpg",
-        "ok": true
-      },
-      {
-        "src": "assets/images/bppo-overview.png",
-        "ok": true
-      },
-      {
-        "src": "assets/images/pg-opd-overview.png",
-        "ok": true
-      }
-    ]
-  },
-  "figure_dialog": true,
-  "citation_dialog": true,
-  "embodied_desktop": {
-    "overflow": false,
-    "noRates": true,
-    "videoCount": 2
-  },
-  "lamp_video": {
-    "playing": true,
-    "time": 1.004781,
-    "error": null
-  },
-  "video_switch": true,
-  "vending_video": {
-    "playing": true,
-    "time": 0.860385,
-    "error": null
-  },
-  "llm_mobile": {
-    "width": 500,
-    "scrollWidth": 488,
+  "llm": {
+    "removedProjects": true,
+    "noMajor": true,
+    "noFigureCaptions": true,
+    "educationItems": 3,
     "overflow": false
   },
-  "embodied_mobile": {
-    "width": 500,
-    "scrollWidth": 488,
+  "lamp": {
+    "source": "http://127.0.0.1:8765/assets/videos/lamp-placement.mp4",
+    "duration": 34.4,
+    "decoded": true,
+    "error": null,
+    "width": 340,
+    "height": 600
+  },
+  "vendingDesktop": {
+    "width": 340,
+    "height": 604.566650390625,
+    "duplicateStill": false,
     "overflow": false
   },
-  "mobile_390px": {
-    "llm": {
-      "width": 390,
-      "scrollWidth": 378,
-      "overflow": false
-    },
-    "embodied": {
-      "width": 390,
-      "scrollWidth": 378,
-      "overflow": false
-    }
+  "vendingSwitch": {
+    "source": "http://127.0.0.1:8765/assets/videos/vending-demo-2.mp4",
+    "decoded": true,
+    "error": null
+  },
+  "mobile390": {
+    "viewport": 390,
+    "overflow": false,
+    "videoWidth": 320,
+    "videoHeight": 569
   }
 }

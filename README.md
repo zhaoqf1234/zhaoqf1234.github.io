@@ -2,7 +2,7 @@
 
 Two static pages for `https://zhaoqf1234.github.io`:
 
-- `index.html`: LLM research, BPPO / PG-OPD paper figures and arXiv links, projects, publications, education and experience.
+- `index.html`: LLM research, BPPO / PG-OPD paper figures and arXiv links, publications, education and experience.
 - `embodied.html`: robotics methods and playable real-robot demonstrations. This page intentionally contains no success-rate or episode-count claims.
 
 ## Local preview

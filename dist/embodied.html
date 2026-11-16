@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://zhaoqf1234.github.io/embodied.html">
   <link rel="canonical" href="https://zhaoqf1234.github.io/embodied.html">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/style.css"><script defer src="assets/site.js"></script>
+  <link rel="stylesheet" href="assets/style.css?v=20261116-2"><script defer src="assets/site.js"></script>
 </head>
 <body class="embodied">
   <a class="skip" href="#main">跳至正文</a>
@@ -30,7 +30,7 @@
         <div class="hero-tags"><span class="tag">Imitation Learning</span><span class="tag">Residual RL</span><span class="tag">Visual Manipulation</span></div>
       </div><aside class="profile" aria-label="个人资料">
       <img class="portrait" src="assets/images/portrait.jpg" alt="赵庆飞个人照片" width="91" height="116">
-      <div><div class="profile-name">Qingfei Zhao<span>赵庆飞</span></div><p class="profile-school">上海交通大学 · 在读博士<br>Shanghai Jiao Tong University<br>能源动力 / Energy and Power</p></div>
+      <div><div class="profile-name">Qingfei Zhao<span>赵庆飞</span></div><p class="profile-school">上海交通大学 · 在读博士<br>Shanghai Jiao Tong University</p></div>
       <div class="profile-contact"><a href="mailto:zqf980203@sjtu.edu.cn">zqf980203@sjtu.edu.cn</a><button class="icon-button" type="button" data-copy-email aria-label="复制邮箱"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg></button></div>
     </aside>
     </section>
@@ -38,7 +38,7 @@
     <article class="showcase" id="lamp" aria-labelledby="lamp-title">
       <div class="showcase-heading"><div><span class="index-label">01 / LEARNING-BASED MANIPULATION</span><h2 id="lamp-title">车灯抓取与精细装箱</h2><p>以模仿学习构建基础动作，通过空间注意力残差 Actor–Critic 学习修正，实现车灯抓取、对齐与放置。</p></div><span class="platform">Piper · 真机</span></div>
       <div class="showcase-grid">
-        <div><div class="video-shell"><video id="lamp-video" controls playsinline preload="none" poster="assets/images/lamp-poster.jpg" aria-label="车灯装箱基础策略与残差策略演示对比"><source src="assets/videos/lamp-comparison.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频，请<a href="assets/videos/lamp-comparison.mp4">下载视频</a>。</video><button type="button" class="video-play" aria-label="播放车灯装箱演示"><span class="play-icon" aria-hidden="true">▶</span><span>播放真机演示 / Play demo</span></button></div><p class="video-caption">基础策略与残差策略的真机案例对比。视频用于展示操作过程。</p></div>
+        <div class="lamp-media"><div class="video-shell portrait-video"><video id="lamp-video" controls playsinline preload="none" poster="assets/images/lamp-placement-poster.jpg" aria-label="车灯抓取与放置真机演示"><source src="assets/videos/lamp-placement.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频，请<a href="assets/videos/lamp-placement.mp4">下载视频</a>。</video><button type="button" class="video-play" aria-label="播放车灯装箱演示"><span class="play-icon" aria-hidden="true">▶</span><span>播放真机演示 / Play demo</span></button></div><p class="video-caption">车灯抓取、对齐与放置的真机演示。</p></div>
         <div><ol class="method-list">
           <li data-step="1"><h3>UMI 示教与 ACT 基础策略</h3><p>采用 UMI 方式采集示教数据，组织视觉观测与动作序列，训练 ACT 模型，学习车灯抓取与放置的基础行为。</p></li>
           <li data-step="2"><h3>空间注意力残差 Actor–Critic</h3><p>融合视觉空间特征与机器人状态，在基础动作上学习残差修正，让策略能够根据当前观测调整精细操作。</p></li>
@@ -56,8 +56,8 @@
           <li data-step="3"><h3>面向商品形状的抓取策略</h3><p>圆柱类采用 PCA 主轴估计与抓取中心补偿；盒装类通过检测框顶部与稳健深度估计抓取点，并用货架方向约束姿态。</p></li>
           <li data-step="4"><h3>多路点运动与售卖流程</h3><p>完成相机、机器人与末端坐标变换，规划预接近与抓取路点；结合夹爪控制、回位流程、交互界面和任务队列执行连续取货。</p></li>
         </ol><div class="method-tags"><span class="tag">YOLO</span><span class="tag">SAM</span><span class="tag">RGB-D</span><span class="tag">PCA</span><span class="tag">Motion Planning</span></div>
-      </div><div>
-        <div class="shelf-video-layout"><div><div class="video-shell portrait-video"><video id="vending-video" controls playsinline preload="none" poster="assets/images/vending-poster.jpg" aria-label="G1 便利店商品抓取演示"><source src="assets/videos/vending-demo.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频，请<a href="assets/videos/vending-demo.mp4">下载视频</a>。</video><button class="video-play" type="button" aria-label="播放便利店机器人演示"><span class="play-icon" aria-hidden="true">▶</span><span>播放真机演示</span></button></div><p class="media-label">REAL-ROBOT DEMO</p></div><div><img class="still-image" src="assets/images/vending-secondary.jpg" alt="Galbot G1 在多层商品货架前执行抓取的实拍画面" width="640" height="1138" loading="lazy"><p class="media-label">PERCEPTION → ACTION</p></div></div>
+      </div><div class="vending-media">
+        <div class="video-shell portrait-video"><video id="vending-video" controls playsinline preload="none" poster="assets/images/vending-poster.jpg" aria-label="G1 便利店商品抓取演示"><source src="assets/videos/vending-demo.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频，请<a href="assets/videos/vending-demo.mp4">下载视频</a>。</video><button class="video-play" type="button" aria-label="播放便利店机器人演示"><span class="play-icon" aria-hidden="true">▶</span><span>播放真机演示</span></button></div>
         <div class="video-switch" role="group" aria-label="选择便利店演示视频"><button type="button" aria-pressed="true" data-video-src="assets/videos/vending-demo.mp4" data-poster="assets/images/vending-poster.jpg" data-caption="演示一：G1 在多层商品货架前执行取货操作。">演示一</button><button type="button" aria-pressed="false" data-video-src="assets/videos/vending-demo-2.mp4" data-poster="assets/images/vending-secondary.jpg" data-caption="演示二：另一段 G1 商品抓取过程。">演示二</button></div><p id="vending-caption" class="video-caption">演示一：G1 在多层商品货架前执行取货操作。</p>
       </div></div>
       <div class="process-strip" aria-label="售卖流程"><span>用户选购</span><span aria-hidden="true">→</span><span>导航观察</span><span aria-hidden="true">→</span><span>视觉抓取</span><span aria-hidden="true">→</span><span>取回交付</span></div>

@@ -5,3 +5,19 @@
 @media(max-width:900px){.container{width:calc(100% - 44px)}.hero{gap:35px;grid-template-columns:1fr 260px;padding-top:52px}.hero h1{font-size:46px}.navigation{gap:17px}.paper-figure{height:218px}.paper-body{padding:21px}.showcase-grid{gap:25px}.bottom-grid{gap:35px}.shelf-grid{gap:25px}.robot-intro{gap:20px}}
 @media(max-width:650px){body{font-size:14px}.container{width:calc(100% - 36px)}.nav-inner{height:68px;gap:12px}.brand{font-size:12px;gap:8px}.monogram{width:29px;height:29px;font-size:15px}.navigation{gap:15px}.nav-link{font-size:11px}.nav-external{padding-left:0;border:0}.nav-external span{display:none}.hero{grid-template-columns:1fr;gap:29px;padding:40px 0 35px}.hero h1{font-size:46px;letter-spacing:-1.8px;margin:19px 0}.hero-description{font-size:13px}.hero-tags{margin-top:20px}.profile{grid-template-columns:65px 1fr;gap:14px;padding:17px 0}.portrait{width:65px;height:82px}.profile-name{font-size:20px}.profile-name span{display:inline;font-size:12px;margin-left:10px}.profile-school{margin-top:7px}.profile-contact{grid-column:auto;grid-column:1/-1;padding-top:10px}.section{padding-top:30px}.section h2{font-size:29px}.section-top{margin-bottom:22px}.section-note{font-size:10px;max-width:110px;text-align:right}.research-grid{grid-template-columns:1fr;gap:20px}.paper-figure{height:242px}.paper-body{padding:23px}.paper-fulltitle{min-height:0}.project-row{grid-template-columns:25px minmax(0,1fr);gap:12px;padding:23px 0}.project-side{grid-column:2;text-align:left;padding-top:0}.project-row h3{font-size:16px}.publication{grid-template-columns:36px 1fr;gap:10px}.publication>a{grid-column:2;text-align:left;padding-top:0}.publication h3{font-size:13px}.bottom-grid{grid-template-columns:1fr;gap:20px}.contact-panel{flex-direction:column;align-items:start;margin-top:32px;padding:28px 0}.contact-panel h2{font-size:27px}.footer{font-size:9px;flex-direction:column;gap:4px}.next-page{padding:20px}.next-page strong{font-size:20px}.robot-intro{grid-template-columns:1fr;gap:18px;padding-bottom:29px}.robot-intro>div{padding-left:14px;border-left:2px solid var(--line)}.robot-intro p{margin-top:4px}.showcase{padding:30px 0}.showcase-heading{gap:13px}.showcase-heading h2{font-size:22px}.showcase-heading p{font-size:12px}.platform{font-size:9px;padding:5px 7px}.showcase-grid,.shelf-grid{grid-template-columns:1fr;gap:25px}.method-list li{padding-bottom:22px}.process-strip{padding:14px 12px;font-size:10px;flex-wrap:wrap;justify-content:center;gap:9px}.engineering-notes{grid-template-columns:1fr;gap:15px}.engineering-note{padding-top:13px}.engineering-note p{margin-bottom:4px}.eyebrow{font-size:10px;letter-spacing:1.3px}.shelf-video-layout{gap:10px}.video-play .play-icon{width:48px;height:48px;font-size:17px}.video-play>span:last-child{font-size:10px}dialog{padding:18px}.citation-code{font-size:10px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Give portrait demonstrations a full player rather than two narrow columns. */
+.showcase-grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:center}
+.shelf-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:center}
+.lamp-media,.vending-media{width:min(100%,340px);min-width:0}
+.lamp-media{justify-self:start}
+.vending-media{justify-self:end}
+.lamp-media .video-shell{aspect-ratio:544/960}
+.lamp-media video,.vending-media video{max-height:none}
+.vending-media .video-switch{justify-content:center;gap:10px;margin-top:16px}
+.vending-media .video-switch button{padding:8px 18px;font-size:12px}
+.vending-media .video-caption{text-align:center}
+@media(max-width:650px){
+  .showcase-grid,.shelf-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .lamp-media,.vending-media{width:min(100%,320px);justify-self:center}
+}

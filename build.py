@@ -11,7 +11,7 @@ GITHUB_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><
 def profile():
     return f'''<aside class="profile" aria-label="个人资料">
       <img class="portrait" src="assets/images/portrait.jpg" alt="赵庆飞个人照片" width="91" height="116">
-      <div><div class="profile-name">Qingfei Zhao<span>赵庆飞</span></div><p class="profile-school">上海交通大学 · 在读博士<br>Shanghai Jiao Tong University<br>能源动力 / Energy and Power</p></div>
+      <div><div class="profile-name">Qingfei Zhao<span>赵庆飞</span></div><p class="profile-school">上海交通大学 · 在读博士<br>Shanghai Jiao Tong University</p></div>
       <div class="profile-contact"><a href="mailto:zqf980203@sjtu.edu.cn">zqf980203@sjtu.edu.cn</a><button class="icon-button" type="button" data-copy-email aria-label="复制邮箱">{COPY_ICON}</button></div>
     </aside>'''
 
@@ -33,7 +33,7 @@ def page(title, description, content, embodied=False):
   <meta property="og:url" content="https://zhaoqf1234.github.io/{filename}">
   <link rel="canonical" href="https://zhaoqf1234.github.io/{filename}">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/style.css"><script defer src="assets/site.js"></script>
+  <link rel="stylesheet" href="assets/style.css?v=20261116-2"><script defer src="assets/site.js"></script>
 </head>
 <body{' class="embodied"' if embodied else ''}>
   <a class="skip" href="#main">跳至正文</a>
@@ -73,7 +73,6 @@ LLM = '''
             <p class="paper-summary">从组内响应中选取最短正确 / 错误响应对，保留完整组的优势归一化，结合前缀策略更新与自适应生成调度，减少冗余训练计算。</p>
             <div class="paper-result"><div><span class="result-value">6.08×</span><span class="result-label">最高训练加速</span></div><div><span class="result-value">30–50%</span><span class="result-label">平均响应长度降低</span></div></div>
             <div class="paper-links"><a class="text-link" href="https://arxiv.org/abs/2605.28028" target="_blank" rel="noopener noreferrer">arXiv ↗</a><a class="text-link" href="https://arxiv.org/pdf/2605.28028" target="_blank" rel="noopener noreferrer">PDF ↗</a><button class="quiet-button" type="button" data-cite="bppo">BibTeX</button></div>
-            <p class="source-caption">截图源自 BPPO 原论文；效率结果对应论文中的实验配置。</p>
           </div>
         </article>
         <article class="paper-card reveal">
@@ -83,18 +82,11 @@ LLM = '''
             <p class="paper-summary">通过短前缀中的 teacher–student top-k overlap 评估轨迹价值，将长 continuation 预算分配给更有价值的候选，在保持 OPD 目标的基础上优化 rollout 分配。</p>
             <div class="paper-result"><div><span class="result-value">2.46×</span><span class="result-label">最高训练加速</span></div><div><span class="result-value">verl</span><span class="result-label">算法实现框架</span></div></div>
             <div class="paper-links"><a class="text-link" href="https://arxiv.org/abs/2606.21994" target="_blank" rel="noopener noreferrer">arXiv ↗</a><a class="text-link" href="https://arxiv.org/pdf/2606.21994" target="_blank" rel="noopener noreferrer">PDF ↗</a><button class="quiet-button" type="button" data-cite="pgopd">BibTeX</button></div>
-            <p class="source-caption">截图源自 PG-OPD 原论文；效率结果对应论文中的实验配置。</p>
           </div>
         </article>
       </div>
     </section>
-    <section class="section more-projects" aria-labelledby="projects-title">
-      <div class="section-top"><div><div class="eyebrow">02 / Research & practice</div><h2 id="projects-title">从算法到模型</h2></div><span class="section-note">预训练 · 多模态 · 领域应用</span></div>
-      <article class="project-row"><span class="project-number">01</span><div><h3>多尺度家族模型与 Scaling Law</h3><p>基于 Megatron 构建多退出点家族模型训练框架，将模型规模 N、训练数据量 D 与分支粒度 G 纳入统一的 Scaling Law 分析。</p><details><summary>展开方法与结果</summary><p>基于 100 余组预训练实验进行拟合，R² 为 0.97；实验表明，相同性能下家族模型相较传统 dense 模型可节约 60% 以上训练 FLOPs。</p></details></div><div class="project-side">Megatron · Scaling Law<br><a class="text-link" href="https://github.com/zhaoqf1234/AI-Flow-Familial-LLM" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></article>
-      <article class="project-row"><span class="project-number">02</span><div><h3>Ruyi2 → Ruyi2.5 多模态模型迭代</h3><p>参与 SFT 数据清洗、教师模型数据合成与配比优化；通过分支扩展、权重初始化和 SVD 低秩分解优化 early-exit 模型，并参与多模态数据治理与隐私敏感行为识别。</p><details><summary>展开技术细节</summary><p>Ruyi2 分支扩展 3 层 Transformer Blocks，冻结原始 backbone，训练新增模块与 LM Head。图像清洗覆盖分辨率、模糊度、噪声与 pHash 去重，并结合生成模型合成特定场景图像。</p></details></div><div class="project-side">Multimodal · Data<br><a class="text-link" href="https://arxiv.org/abs/2603.17311" target="_blank" rel="noopener noreferrer">Technical report ↗</a></div></article>
-      <article class="project-row"><span class="project-number">03</span><div><h3>中医药领域大模型实体抽取</h3><p>面向中医药文本构建信息抽取系统，将 FAISS 向量检索与 TF-IDF 关键词检索结合，检索 few-shot 示例，并使用 Unsloth 对 Qwen3-8B 进行 LoRA 微调。</p><details><summary>展开方法与结果</summary><p>使用 3 条向量检索与 2 条关键词检索示例构建上下文，结合思维链数据微调与 RAG，最终方案的 F1 达到 90%。</p></details></div><div class="project-side">RAG · Qwen3 · LoRA<br>项目负责人</div></article>
-    </section>
-    <section class="section" id="publications" aria-labelledby="publications-title"><div class="section-top"><div><div class="eyebrow">03 / Publications</div><h2 id="publications-title">论文与预印本</h2></div><span class="section-note">Selected publications</span></div>
+    <section class="section" id="publications" aria-labelledby="publications-title"><div class="section-top"><div><div class="eyebrow">02 / Publications</div><h2 id="publications-title">论文与预印本</h2></div><span class="section-note">Selected publications</span></div>
       <ol class="publication-list">
         <li class="publication"><span class="publication-year">2026</span><div><h3>BPPO: Binary Prefix Policy Optimization for Efficient GRPO-Style Reasoning RL with Concise Responses</h3><p><strong>Qingfei Zhao</strong>, Huan Song, Shuyu Tian, Jiawei Shao, Xuelong Li · 第一作者 · arXiv:2605.28028</p></div><a href="https://arxiv.org/abs/2605.28028" target="_blank" rel="noopener noreferrer">arXiv ↗</a></li>
         <li class="publication"><span class="publication-year">2026</span><div><h3>Prefix-Guided On-Policy Distillation: Mining Golden Trajectories from Rollouts</h3><p><strong>Qingfei Zhao</strong>, Huan Song, Shuyu Tian, Jiawei Shao, Xuelong Li · 第一作者 · arXiv:2606.21994</p></div><a href="https://arxiv.org/abs/2606.21994" target="_blank" rel="noopener noreferrer">arXiv ↗</a></li>
@@ -103,12 +95,12 @@ LLM = '''
       </ol>
     </section>
     <div class="bottom-grid">
-      <section class="section" aria-labelledby="education-title"><div class="eyebrow">04 / Education</div><h2 id="education-title">教育背景</h2><ul class="timeline">
-        <li><span class="timeline-date">2024.09 — PRESENT</span><h3>上海交通大学 · 博士研究生</h3><p>能源动力</p></li>
-        <li><span class="timeline-date">2021.09 — 2024.04</span><h3>上海交通大学 · 硕士</h3><p>能源动力</p></li>
-        <li><span class="timeline-date">2017.09 — 2021.07</span><h3>哈尔滨工程大学 · 本科</h3><p>核科学与技术</p></li>
+      <section class="section" aria-labelledby="education-title"><div class="eyebrow">03 / Education</div><h2 id="education-title">教育背景</h2><ul class="timeline">
+        <li><span class="timeline-date">2024.09 — PRESENT</span><h3>上海交通大学 · 博士研究生</h3></li>
+        <li><span class="timeline-date">2021.09 — 2024.04</span><h3>上海交通大学 · 硕士</h3></li>
+        <li><span class="timeline-date">2017.09 — 2021.07</span><h3>哈尔滨工程大学 · 本科</h3></li>
       </ul></section>
-      <section class="section" aria-labelledby="experience-title"><div class="eyebrow">05 / Experience</div><h2 id="experience-title">研究与实习经历</h2><ul class="timeline">
+      <section class="section" aria-labelledby="experience-title"><div class="eyebrow">04 / Experience</div><h2 id="experience-title">研究与实习经历</h2><ul class="timeline">
         <li><span class="timeline-date">2025.11 — 2026.07</span><h3>中国电信人工智能研究院 · TeleAI</h3><p>预训练算法实习生 · 优秀实习生（前 5%）<br>家族模型预训练、推理强化学习与蒸馏</p></li>
         <li><span class="timeline-date">2026.08 — 2026.11</span><h3>智柔操作（上海）科技有限公司</h3><p>具身智能算法实习生<br>模仿学习、真机残差强化学习与自主操作</p></li>
       </ul><a class="text-link" href="embodied.html">查看具身智能项目与演示 ↗</a></section>
@@ -127,7 +119,7 @@ EMBODIED = '''
     <article class="showcase" id="lamp" aria-labelledby="lamp-title">
       <div class="showcase-heading"><div><span class="index-label">01 / LEARNING-BASED MANIPULATION</span><h2 id="lamp-title">车灯抓取与精细装箱</h2><p>以模仿学习构建基础动作，通过空间注意力残差 Actor–Critic 学习修正，实现车灯抓取、对齐与放置。</p></div><span class="platform">Piper · 真机</span></div>
       <div class="showcase-grid">
-        <div><div class="video-shell"><video id="lamp-video" controls playsinline preload="none" poster="assets/images/lamp-poster.jpg" aria-label="车灯装箱基础策略与残差策略演示对比"><source src="assets/videos/lamp-comparison.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频，请<a href="assets/videos/lamp-comparison.mp4">下载视频</a>。</video><button type="button" class="video-play" aria-label="播放车灯装箱演示"><span class="play-icon" aria-hidden="true">▶</span><span>播放真机演示 / Play demo</span></button></div><p class="video-caption">基础策略与残差策略的真机案例对比。视频用于展示操作过程。</p></div>
+        <div class="lamp-media"><div class="video-shell portrait-video"><video id="lamp-video" controls playsinline preload="none" poster="assets/images/lamp-placement-poster.jpg" aria-label="车灯抓取与放置真机演示"><source src="assets/videos/lamp-placement.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频，请<a href="assets/videos/lamp-placement.mp4">下载视频</a>。</video><button type="button" class="video-play" aria-label="播放车灯装箱演示"><span class="play-icon" aria-hidden="true">▶</span><span>播放真机演示 / Play demo</span></button></div><p class="video-caption">车灯抓取、对齐与放置的真机演示。</p></div>
         <div><ol class="method-list">
           <li data-step="1"><h3>UMI 示教与 ACT 基础策略</h3><p>采用 UMI 方式采集示教数据，组织视觉观测与动作序列，训练 ACT 模型，学习车灯抓取与放置的基础行为。</p></li>
           <li data-step="2"><h3>空间注意力残差 Actor–Critic</h3><p>融合视觉空间特征与机器人状态，在基础动作上学习残差修正，让策略能够根据当前观测调整精细操作。</p></li>
@@ -145,8 +137,8 @@ EMBODIED = '''
           <li data-step="3"><h3>面向商品形状的抓取策略</h3><p>圆柱类采用 PCA 主轴估计与抓取中心补偿；盒装类通过检测框顶部与稳健深度估计抓取点，并用货架方向约束姿态。</p></li>
           <li data-step="4"><h3>多路点运动与售卖流程</h3><p>完成相机、机器人与末端坐标变换，规划预接近与抓取路点；结合夹爪控制、回位流程、交互界面和任务队列执行连续取货。</p></li>
         </ol><div class="method-tags"><span class="tag">YOLO</span><span class="tag">SAM</span><span class="tag">RGB-D</span><span class="tag">PCA</span><span class="tag">Motion Planning</span></div>
-      </div><div>
-        <div class="shelf-video-layout"><div><div class="video-shell portrait-video"><video id="vending-video" controls playsinline preload="none" poster="assets/images/vending-poster.jpg" aria-label="G1 便利店商品抓取演示"><source src="assets/videos/vending-demo.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频，请<a href="assets/videos/vending-demo.mp4">下载视频</a>。</video><button class="video-play" type="button" aria-label="播放便利店机器人演示"><span class="play-icon" aria-hidden="true">▶</span><span>播放真机演示</span></button></div><p class="media-label">REAL-ROBOT DEMO</p></div><div><img class="still-image" src="assets/images/vending-secondary.jpg" alt="Galbot G1 在多层商品货架前执行抓取的实拍画面" width="640" height="1138" loading="lazy"><p class="media-label">PERCEPTION → ACTION</p></div></div>
+      </div><div class="vending-media">
+        <div class="video-shell portrait-video"><video id="vending-video" controls playsinline preload="none" poster="assets/images/vending-poster.jpg" aria-label="G1 便利店商品抓取演示"><source src="assets/videos/vending-demo.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频，请<a href="assets/videos/vending-demo.mp4">下载视频</a>。</video><button class="video-play" type="button" aria-label="播放便利店机器人演示"><span class="play-icon" aria-hidden="true">▶</span><span>播放真机演示</span></button></div>
         <div class="video-switch" role="group" aria-label="选择便利店演示视频"><button type="button" aria-pressed="true" data-video-src="assets/videos/vending-demo.mp4" data-poster="assets/images/vending-poster.jpg" data-caption="演示一：G1 在多层商品货架前执行取货操作。">演示一</button><button type="button" aria-pressed="false" data-video-src="assets/videos/vending-demo-2.mp4" data-poster="assets/images/vending-secondary.jpg" data-caption="演示二：另一段 G1 商品抓取过程。">演示二</button></div><p id="vending-caption" class="video-caption">演示一：G1 在多层商品货架前执行取货操作。</p>
       </div></div>
       <div class="process-strip" aria-label="售卖流程"><span>用户选购</span><span aria-hidden="true">→</span><span>导航观察</span><span aria-hidden="true">→</span><span>视觉抓取</span><span aria-hidden="true">→</span><span>取回交付</span></div>

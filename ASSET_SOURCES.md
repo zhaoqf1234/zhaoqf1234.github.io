@@ -23,11 +23,11 @@ Portrait embedded in the user-supplied résumé PDF, extracted with pdfimages.
 
 SHA-256: `69cff8a63425c18cce5ce76b4f21320807eb42e96405f1ae941d5422bf3db196`
 
-## `assets/videos/lamp-comparison.mp4`
+## `assets/videos/lamp-placement.mp4`
 
-Existing project presentation assets: grasp_place_training_20261022_v57/assets/videos/rl_before_after_combined.mp4.
+User-selected video: 飞书20261116-144036.mp4. Transcoded for web playback with H.264 video, AAC audio and fast-start metadata.
 
-SHA-256: `65be3a68fb90f1d4c891e50526f9a11a0179fc1218957371b1d04414360d72ea`
+SHA-256: `73f4501f331f130b009d97aa30e43db796b9d07eade0681d793c093a8242eebd`
 
 ## `assets/videos/vending-demo.mp4`
 
@@ -43,3 +43,7 @@ SHA-256: `b2c3a2c73bec4215a283693d4f4ebcdb63b9650074efe83b428136c4d2135e7c`
 
 
 Videos were transcoded to H.264 web delivery versions with fast-start metadata. Original source videos were preserved outside the website.
+
+## `assets/images/lamp-placement-poster.jpg`
+
+Frame extracted at 5 seconds from the user-selected lamp-placement video.
