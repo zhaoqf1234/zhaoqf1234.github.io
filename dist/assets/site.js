@@ -96,6 +96,23 @@ document.querySelectorAll("[data-video-src]").forEach(button => {
     video.load();
     video.closest(".video-shell").querySelector(".video-play").hidden = false;
     document.querySelectorAll("[data-video-src]").forEach(other => other.setAttribute("aria-pressed", String(other === button)));
-    document.querySelector("#vending-caption").textContent = button.dataset.caption;
   });
 });
+
+const sectionLinks = [...document.querySelectorAll("[data-section-link]")];
+function markSection(id) {
+  sectionLinks.forEach(link => {
+    if (link.hash === `#${id}`) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+}
+sectionLinks.forEach(link => link.addEventListener("click", () => markSection(link.hash.slice(1))));
+if ("IntersectionObserver" in window) {
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) markSection(entry.target.id); });
+  }, { rootMargin: "-15% 0px -55% 0px" });
+  sectionLinks.forEach(link => {
+    const section = document.querySelector(link.hash);
+    if (section) sectionObserver.observe(section);
+  });
+}

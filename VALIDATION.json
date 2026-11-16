@@ -1,34 +1,30 @@
 {
-  "llm": {
-    "removedProjects": true,
-    "noMajor": true,
-    "noFigureCaptions": true,
-    "educationItems": 3,
+  "navigation": {
+    "hash": "#embodied",
+    "heroCount": 1,
+    "projectDescriptions": [
+      "以模仿学习构建基础动作，通过真机强化学习学习修正，实现车灯抓取、对齐与放置。",
+      "将地图先验、腕部视觉与几何抓取结合，串联用户选购、导航取货、商品抓取和返回交付。"
+    ],
+    "extraContent": false,
     "overflow": false
   },
   "lamp": {
-    "source": "http://127.0.0.1:8765/assets/videos/lamp-placement.mp4",
-    "duration": 34.4,
     "decoded": true,
-    "error": null,
-    "width": 340,
-    "height": 600
+    "error": null
   },
-  "vendingDesktop": {
-    "width": 340,
-    "height": 604.566650390625,
-    "duplicateStill": false,
-    "overflow": false
-  },
-  "vendingSwitch": {
+  "vending": {
     "source": "http://127.0.0.1:8765/assets/videos/vending-demo-2.mp4",
     "decoded": true,
     "error": null
   },
+  "oldUrl": "/index.html#embodied",
   "mobile390": {
-    "viewport": 390,
     "overflow": false,
-    "videoWidth": 320,
-    "videoHeight": 569
+    "galleryColumns": "342px",
+    "videoWidths": [
+      304,
+      304
+    ]
   }
 }

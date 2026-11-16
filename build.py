@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a dependency-free two-page portfolio for GitHub Pages and static hosting."""
+"""Build a dependency-free single-page portfolio for GitHub Pages."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -16,10 +16,7 @@ def profile():
     </aside>'''
 
 
-def page(title, description, content, embodied=False):
-    current_llm = ' aria-current="page"' if not embodied else ''
-    current_embodied = ' aria-current="page"' if embodied else ''
-    filename = "embodied.html" if embodied else "index.html"
+def page(title, description, content):
     return f'''<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -30,18 +27,18 @@ def page(title, description, content, embodied=False):
   <meta property="og:type" content="website"><meta property="og:title" content="{title} · Qingfei Zhao">
   <meta property="og:description" content="{description}">
   <meta property="og:image" content="https://zhaoqf1234.github.io/assets/images/portrait.jpg">
-  <meta property="og:url" content="https://zhaoqf1234.github.io/{filename}">
-  <link rel="canonical" href="https://zhaoqf1234.github.io/{filename}">
+  <meta property="og:url" content="https://zhaoqf1234.github.io/">
+  <link rel="canonical" href="https://zhaoqf1234.github.io/">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/style.css?v=20261116-2"><script defer src="assets/site.js"></script>
+  <link rel="stylesheet" href="assets/style.css?v=20261116-3"><script defer src="assets/site.js?v=20261116-3"></script>
 </head>
-<body{' class="embodied"' if embodied else ''}>
+<body>
   <a class="skip" href="#main">跳至正文</a>
   <header class="topbar"><div class="container nav-inner">
     <a class="brand" href="index.html" aria-label="Qingfei Zhao 个人主页"><span class="monogram">QF</span>Qingfei Zhao</a>
     <nav class="navigation" aria-label="主导航">
-      <a class="nav-link" href="index.html"{current_llm}>LLM 研究</a>
-      <a class="nav-link" href="embodied.html"{current_embodied}>具身智能</a>
+      <a class="nav-link" href="#research" data-section-link aria-current="location">LLM 研究</a>
+      <a class="nav-link" href="#embodied" data-section-link>具身智能</a>
       <a class="nav-link nav-external" href="https://github.com/zhaoqf1234" target="_blank" rel="noopener noreferrer" aria-label="GitHub 个人主页（新窗口）">{GITHUB_ICON} <span>GitHub ↗</span></a>
     </nav>
   </div></header>
@@ -57,14 +54,14 @@ def page(title, description, content, embodied=False):
 
 LLM = '''
     <section class="hero reveal" aria-labelledby="hero-title">
-      <div><div class="eyebrow">Large Language Models · Research</div>
-        <h1 id="hero-title">Making intelligence<br><em>more efficient.</em></h1>
-        <p class="hero-description">我是赵庆飞，上海交通大学在读博士。研究兴趣聚焦于大语言模型的高效训练、推理强化学习与知识蒸馏，探索如何以更少的计算获得更好的学习与推理能力。</p>
-        <div class="hero-tags"><span class="tag">Reasoning RL</span><span class="tag">On-Policy Distillation</span><span class="tag">Efficient Pretraining</span></div>
+      <div><div class="eyebrow">LLM Research · Embodied Intelligence</div>
+        <h1 id="hero-title">Learning to reason.<br><em>Learning to act.</em></h1>
+        <p class="hero-description">我是赵庆飞，上海交通大学在读博士。研究兴趣包括大语言模型高效训练、推理强化学习与具身智能，关注从模型学习到真实机器人操作。</p>
+        <div class="hero-tags"><span class="tag">LLM Research</span><span class="tag">Reasoning RL</span><span class="tag">Embodied AI</span></div>
       </div>PROFILE
     </section>
     <section class="section" id="research" aria-labelledby="research-title">
-      <div class="section-top"><div><div class="eyebrow">01 / Selected research</div><h2 id="research-title">研究工作</h2></div><span class="section-note">方法、论文与研究实践</span></div>
+      <div class="section-top"><div><div class="eyebrow">01 / LLM Research</div><h2 id="research-title">大语言模型</h2></div><span class="section-note">论文与方法</span></div>
       <div class="research-grid">
         <article class="paper-card reveal">
           <button class="paper-figure" type="button" data-figure="assets/images/bppo-overview.png" data-title="BPPO · 方法总览" aria-label="放大 BPPO 原论文方法图"><img src="assets/images/bppo-overview.png" alt="BPPO 原论文方法总览：组内采样、正确与错误响应选择及前缀策略更新" width="1200" height="650"><span class="figure-zoom">查看原图 ↗</span></button>
@@ -86,7 +83,8 @@ LLM = '''
         </article>
       </div>
     </section>
-    <section class="section" id="publications" aria-labelledby="publications-title"><div class="section-top"><div><div class="eyebrow">02 / Publications</div><h2 id="publications-title">论文与预印本</h2></div><span class="section-note">Selected publications</span></div>
+    EMBODIED_SECTION
+    <section class="section" id="publications" aria-labelledby="publications-title"><div class="section-top"><div><div class="eyebrow">03 / Publications</div><h2 id="publications-title">论文与预印本</h2></div><span class="section-note">Selected publications</span></div>
       <ol class="publication-list">
         <li class="publication"><span class="publication-year">2026</span><div><h3>BPPO: Binary Prefix Policy Optimization for Efficient GRPO-Style Reasoning RL with Concise Responses</h3><p><strong>Qingfei Zhao</strong>, Huan Song, Shuyu Tian, Jiawei Shao, Xuelong Li · 第一作者 · arXiv:2605.28028</p></div><a href="https://arxiv.org/abs/2605.28028" target="_blank" rel="noopener noreferrer">arXiv ↗</a></li>
         <li class="publication"><span class="publication-year">2026</span><div><h3>Prefix-Guided On-Policy Distillation: Mining Golden Trajectories from Rollouts</h3><p><strong>Qingfei Zhao</strong>, Huan Song, Shuyu Tian, Jiawei Shao, Xuelong Li · 第一作者 · arXiv:2606.21994</p></div><a href="https://arxiv.org/abs/2606.21994" target="_blank" rel="noopener noreferrer">arXiv ↗</a></li>
@@ -95,64 +93,48 @@ LLM = '''
       </ol>
     </section>
     <div class="bottom-grid">
-      <section class="section" aria-labelledby="education-title"><div class="eyebrow">03 / Education</div><h2 id="education-title">教育背景</h2><ul class="timeline">
+      <section class="section" aria-labelledby="education-title"><div class="eyebrow">04 / Education</div><h2 id="education-title">教育背景</h2><ul class="timeline">
         <li><span class="timeline-date">2024.09 — PRESENT</span><h3>上海交通大学 · 博士研究生</h3></li>
         <li><span class="timeline-date">2021.09 — 2024.04</span><h3>上海交通大学 · 硕士</h3></li>
         <li><span class="timeline-date">2017.09 — 2021.07</span><h3>哈尔滨工程大学 · 本科</h3></li>
       </ul></section>
-      <section class="section" aria-labelledby="experience-title"><div class="eyebrow">04 / Experience</div><h2 id="experience-title">研究与实习经历</h2><ul class="timeline">
+      <section class="section" aria-labelledby="experience-title"><div class="eyebrow">05 / Experience</div><h2 id="experience-title">研究与实习经历</h2><ul class="timeline">
         <li><span class="timeline-date">2025.11 — 2026.07</span><h3>中国电信人工智能研究院 · TeleAI</h3><p>预训练算法实习生 · 优秀实习生（前 5%）<br>家族模型预训练、推理强化学习与蒸馏</p></li>
         <li><span class="timeline-date">2026.08 — 2026.11</span><h3>智柔操作（上海）科技有限公司</h3><p>具身智能算法实习生<br>模仿学习、真机残差强化学习与自主操作</p></li>
-      </ul><a class="text-link" href="embodied.html">查看具身智能项目与演示 ↗</a></section>
+      </ul></section>
     </div>
-    <a class="next-page" href="embodied.html"><div><small>EXPLORE ANOTHER DIRECTION</small><strong>Embodied AI / 具身智能</strong></div><span aria-hidden="true">↗</span></a>
 '''
 
 EMBODIED = '''
-    <section class="hero reveal" aria-labelledby="hero-title">
-      <div><div class="eyebrow">Embodied Intelligence · Real robots</div><h1 id="hero-title">Intelligence,<br><em>in motion.</em></h1>
-        <p class="hero-description">从人类示教到真实世界操作。围绕机器人抓取与精细放置，探索模仿学习、残差强化学习与视觉几何方法，让感知、学习和控制在真机上协同工作。</p>
-        <div class="hero-tags"><span class="tag">Imitation Learning</span><span class="tag">Residual RL</span><span class="tag">Visual Manipulation</span></div>
-      </div>PROFILE
-    </section>
-    <div class="robot-intro"><div><strong>Learn from demonstrations</strong><p>通过 UMI 示教采集与 ACT，学习操作基础策略。</p></div><div><strong>Refine through interaction</strong><p>结合空间注意力与残差策略，优化精细操作动作。</p></div><div><strong>Connect perception & control</strong><p>融合视觉几何、运动规划与真实机器人控制。</p></div></div>
-    <article class="showcase" id="lamp" aria-labelledby="lamp-title">
-      <div class="showcase-heading"><div><span class="index-label">01 / LEARNING-BASED MANIPULATION</span><h2 id="lamp-title">车灯抓取与精细装箱</h2><p>以模仿学习构建基础动作，通过空间注意力残差 Actor–Critic 学习修正，实现车灯抓取、对齐与放置。</p></div><span class="platform">Piper · 真机</span></div>
-      <div class="showcase-grid">
-        <div class="lamp-media"><div class="video-shell portrait-video"><video id="lamp-video" controls playsinline preload="none" poster="assets/images/lamp-placement-poster.jpg" aria-label="车灯抓取与放置真机演示"><source src="assets/videos/lamp-placement.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频，请<a href="assets/videos/lamp-placement.mp4">下载视频</a>。</video><button type="button" class="video-play" aria-label="播放车灯装箱演示"><span class="play-icon" aria-hidden="true">▶</span><span>播放真机演示 / Play demo</span></button></div><p class="video-caption">车灯抓取、对齐与放置的真机演示。</p></div>
-        <div><ol class="method-list">
-          <li data-step="1"><h3>UMI 示教与 ACT 基础策略</h3><p>采用 UMI 方式采集示教数据，组织视觉观测与动作序列，训练 ACT 模型，学习车灯抓取与放置的基础行为。</p></li>
-          <li data-step="2"><h3>空间注意力残差 Actor–Critic</h3><p>融合视觉空间特征与机器人状态，在基础动作上学习残差修正，让策略能够根据当前观测调整精细操作。</p></li>
-          <li data-step="3"><h3>真机交互与策略部署</h3><p>通过真实机器人交互优化修正策略，衔接抓取、对齐和放置阶段，将策略输出接入机械臂执行流程。</p></li>
-        </ol><div class="method-tags"><span class="tag">UMI</span><span class="tag">ACT</span><span class="tag">Spatial Attention</span><span class="tag">Actor–Critic</span><span class="tag">Residual RL</span></div></div>
+    <section class="section embodied-section" id="embodied" aria-labelledby="embodied-title">
+      <div class="section-top"><div><div class="eyebrow">02 / Embodied AI</div><h2 id="embodied-title">具身智能</h2></div><span class="section-note">真机演示</span></div>
+      <div class="robot-gallery">
+        <article class="robot-project" id="lamp" aria-labelledby="lamp-title">
+          <div class="robot-project-intro"><h3 id="lamp-title">车灯抓取与精细装箱</h3><p>以模仿学习构建基础动作，通过真机强化学习学习修正，实现车灯抓取、对齐与放置。</p></div>
+          <div class="robot-player"><div class="video-shell portrait-video lamp-player"><video id="lamp-video" controls playsinline preload="none" poster="assets/images/lamp-placement-poster.jpg" aria-label="车灯抓取与放置真机演示"><source src="assets/videos/lamp-placement.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频，请<a href="assets/videos/lamp-placement.mp4">下载视频</a>。</video><button type="button" class="video-play" aria-label="播放车灯装箱演示"><span class="play-icon" aria-hidden="true">▶</span><span>播放演示</span></button></div></div>
+        </article>
+        <article class="robot-project" id="vending" aria-labelledby="vending-title">
+          <div class="robot-project-intro"><h3 id="vending-title">便利店自动售卖机器人</h3><p>将地图先验、腕部视觉与几何抓取结合，串联用户选购、导航取货、商品抓取和返回交付。</p></div>
+          <div class="robot-player"><div class="video-shell portrait-video"><video id="vending-video" controls playsinline preload="none" poster="assets/images/vending-poster.jpg" aria-label="G1 便利店商品抓取演示"><source src="assets/videos/vending-demo.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频，请<a href="assets/videos/vending-demo.mp4">下载视频</a>。</video><button type="button" class="video-play" aria-label="播放便利店机器人演示"><span class="play-icon" aria-hidden="true">▶</span><span>播放演示</span></button></div>
+          <div class="video-switch" role="group" aria-label="选择便利店演示视频"><button type="button" aria-pressed="true" data-video-src="assets/videos/vending-demo.mp4" data-poster="assets/images/vending-poster.jpg">演示一</button><button type="button" aria-pressed="false" data-video-src="assets/videos/vending-demo-2.mp4" data-poster="assets/images/vending-secondary.jpg">演示二</button></div></div>
+        </article>
       </div>
-      <div class="process-strip" aria-label="方法流程"><span>人类示教</span><span aria-hidden="true">→</span><span>ACT 基础动作</span><span aria-hidden="true">＋</span><span>视觉条件残差</span><span aria-hidden="true">→</span><span>真机操作</span></div>
-    </article>
-    <article class="showcase" id="vending" aria-labelledby="vending-title">
-      <div class="showcase-heading"><div><span class="index-label">02 / AUTONOMOUS RETAIL ROBOT</span><h2 id="vending-title">便利店自动售卖机器人</h2><p>将地图先验、腕部视觉与几何抓取结合，串联用户选购、导航取货、商品抓取和返回交付。</p></div><span class="platform">Galbot G1</span></div>
-      <div class="shelf-grid"><div>
-        <ol class="method-list">
-          <li data-step="1"><h3>地图先验与分层观察</h3><p>根据商品标定位置计算底盘站位，结合货架层高调整身体与右臂观察姿态，导航到适合感知和操作的位置。</p></li>
-          <li data-step="2"><h3>YOLO、SAM 与 RGB-D 几何感知</h3><p>利用 YOLO 识别商品，并结合标定点投影选择目标。针对瓶罐类商品，通过 SAM 提取物体区域并生成点云。</p></li>
-          <li data-step="3"><h3>面向商品形状的抓取策略</h3><p>圆柱类采用 PCA 主轴估计与抓取中心补偿；盒装类通过检测框顶部与稳健深度估计抓取点，并用货架方向约束姿态。</p></li>
-          <li data-step="4"><h3>多路点运动与售卖流程</h3><p>完成相机、机器人与末端坐标变换，规划预接近与抓取路点；结合夹爪控制、回位流程、交互界面和任务队列执行连续取货。</p></li>
-        </ol><div class="method-tags"><span class="tag">YOLO</span><span class="tag">SAM</span><span class="tag">RGB-D</span><span class="tag">PCA</span><span class="tag">Motion Planning</span></div>
-      </div><div class="vending-media">
-        <div class="video-shell portrait-video"><video id="vending-video" controls playsinline preload="none" poster="assets/images/vending-poster.jpg" aria-label="G1 便利店商品抓取演示"><source src="assets/videos/vending-demo.mp4" type="video/mp4">你的浏览器不支持 HTML5 视频，请<a href="assets/videos/vending-demo.mp4">下载视频</a>。</video><button class="video-play" type="button" aria-label="播放便利店机器人演示"><span class="play-icon" aria-hidden="true">▶</span><span>播放真机演示</span></button></div>
-        <div class="video-switch" role="group" aria-label="选择便利店演示视频"><button type="button" aria-pressed="true" data-video-src="assets/videos/vending-demo.mp4" data-poster="assets/images/vending-poster.jpg" data-caption="演示一：G1 在多层商品货架前执行取货操作。">演示一</button><button type="button" aria-pressed="false" data-video-src="assets/videos/vending-demo-2.mp4" data-poster="assets/images/vending-secondary.jpg" data-caption="演示二：另一段 G1 商品抓取过程。">演示二</button></div><p id="vending-caption" class="video-caption">演示一：G1 在多层商品货架前执行取货操作。</p>
-      </div></div>
-      <div class="process-strip" aria-label="售卖流程"><span>用户选购</span><span aria-hidden="true">→</span><span>导航观察</span><span aria-hidden="true">→</span><span>视觉抓取</span><span aria-hidden="true">→</span><span>取回交付</span></div>
-    </article>
-    <section class="section" aria-labelledby="engineering-title"><div class="section-top"><div><div class="eyebrow">03 / Engineering focus</div><h2 id="engineering-title">让方法落到真机</h2></div></div><div class="engineering-notes"><article class="engineering-note"><h3>数据与表示</h3><p>从示教采集、时序数据组织到视觉与状态输入，建立连接人类演示和机器人动作的训练链路。</p></article><article class="engineering-note"><h3>感知与坐标</h3><p>将图像、深度、物体几何与机器人坐标联系起来，把视觉目标转换为可执行的末端位姿。</p></article><article class="engineering-note"><h3>策略与执行</h3><p>关注基础策略与残差修正的衔接，以及动作序列、路点规划、夹爪控制和任务流程的协同。</p></article></div></section>
-    <a class="next-page" href="index.html"><div><small>EXPLORE ANOTHER DIRECTION</small><strong>LLM Research / 大模型研究</strong></div><span aria-hidden="true">↗</span></a>
+    </section>
 '''
 
 
 def main():
     DIST.mkdir(exist_ok=True)
-    (DIST / "index.html").write_text(page("LLM Research", "赵庆飞，上海交通大学在读博士。研究高效大模型训练、推理强化学习与 On-Policy Distillation；展示 BPPO、PG-OPD 论文及方法。", LLM.replace("PROFILE", profile())), encoding="utf-8")
-    (DIST / "embodied.html").write_text(page("Embodied AI / 具身智能", "赵庆飞的具身智能项目：UMI 与 ACT、空间注意力残差强化学习、Piper 车灯装箱与 Galbot G1 便利店机器人真机演示。", EMBODIED.replace("PROFILE", profile()), embodied=True), encoding="utf-8")
-    print("Built dist/index.html and dist/embodied.html")
+    content = LLM.replace("PROFILE", profile()).replace("    EMBODIED_SECTION", EMBODIED)
+    description = "赵庆飞，上海交通大学在读博士。展示 BPPO、PG-OPD 大模型研究、论文方法图及车灯装箱、便利店机器人真机演示。"
+    (DIST / "index.html").write_text(page("LLM & Embodied AI", description, content), encoding="utf-8")
+    # Keep previously shared URLs working after consolidating the two pages.
+    (DIST / "embodied.html").write_text('''<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>具身智能 · Qingfei Zhao</title><link rel="canonical" href="https://zhaoqf1234.github.io/#embodied">
+<meta http-equiv="refresh" content="0;url=index.html#embodied"></head>
+<body><a href="index.html#embodied">查看具身智能项目与演示</a></body></html>''', encoding="utf-8")
+    print("Built single-page portfolio and legacy URL redirect")
 
 
 if __name__ == "__main__":

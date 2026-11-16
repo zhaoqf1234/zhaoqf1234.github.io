@@ -1,9 +1,11 @@
 # Qingfei Zhao · Personal website
 
-Two static pages for `https://zhaoqf1234.github.io`:
+One static portfolio page at `https://zhaoqf1234.github.io`:
 
-- `index.html`: LLM research, BPPO / PG-OPD paper figures and arXiv links, publications, education and experience.
-- `embodied.html`: robotics methods and playable real-robot demonstrations. This page intentionally contains no success-rate or episode-count claims.
+- `index.html#research`: LLM research, BPPO / PG-OPD paper figures and arXiv links.
+- `index.html#embodied`: two robot projects, each with one sentence and playable demonstrations. No success-rate or episode-count claims.
+- The same page also contains publications, education and experience.
+- `embodied.html` redirects old shared links to `index.html#embodied`.
 
 ## Local preview
 
